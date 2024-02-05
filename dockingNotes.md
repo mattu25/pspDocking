@@ -185,7 +185,4 @@ Autodock command (so I don't have to retype)
 
 vina_split --receptor tauSLS.pdbqt --ligand JJEBML.xaa.pdbqt --center_x 179.991 --center_y 178.728 --center_z 172.492 --size_x 19.1166666667 --size_y 20.3416666667 --size_z 31.35
 
-Access:
 
-username: munger
-password: accessCluster@93117
