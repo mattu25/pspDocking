@@ -2,7 +2,7 @@
 
 mkdir ligandPDBQ 
 cd ligandPDBQT
-echo "hello"
+
 
 
 
