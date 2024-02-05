@@ -1,3 +1,14 @@
+# Meeting Notes
+
+## Meeting 1/30
+
+* Where should the grid be centered?
+* Look into what the difference between adding all hydrogens vs only polar
+* Check if vina takes .gpf
+
+* Inertial Tensor
+    Its a 3x3 matrix. Read up later.
+
 # Terminal Basics
 
 ## Basic Commands 
@@ -20,9 +31,9 @@ There are several key commands to know in order to effectively navigate the mach
 
 Vi is a text editing software for unix. We can use this to easily view files and make changes within terminal. 
 
-
 shift + " + * + y
-#### Key Commands
+
+### Key Commands
 
 `vi [Filename]` -- Write or edit a file in terminal
 
@@ -40,7 +51,7 @@ i (key): enable insert mode, allows changes to be made to file
 
 Secure Shell (SSH) is a cryptographic method we use in order to do remote logins to servers and command-line work. 
 
-#### Basics of SSH
+### Basics of SSH
 
 To SSH into something: `ssh [Username]@[Link]`
 
@@ -49,7 +60,7 @@ To leave an SSH Connection: `exit`
 ** My username is maunger **
 
 
-#### Setting up SSH Shortcut
+### Setting up SSH Shortcut
 
 Typing in the previous command can be really tedious and frustrating, so what we can do is create a shortcut such that we only have to type ssh xyz in order to enter the machine
 
@@ -66,11 +77,11 @@ Typing in the previous command can be really tedious and frustrating, so what we
 4. Generate an rsa key `ssh-keygen -t rsa`
 5. Copy and put it into id_rsa.pub
 
-## PyMol
+# PyMol
 
-## Autodock Tools
+# Autodock Tools
 
-### Preparing the Receptor 
+## Preparing the Receptor 
 
 There are two things that need to be done in order for the receptor to be ready for docking:
 
@@ -85,7 +96,7 @@ There are two things that need to be done in order for the receptor to be ready 
     * Assuming we aren't doing blind docking and we have a region that we want to target on the molecule, we need to determine the coordinates of the region to where the program will be. 
 
 
-#### Generating a PDBQT File in AutoDock Tools
+## Generating a PDBQT File in AutoDock Tools
 
 Assuming you have imported your protein:
 
@@ -98,26 +109,16 @@ Assuming you have imported your protein:
 5. Save file (file > save > write PDBQT)
     * Be sure you add .pdbqt to the end 
 
-#### Establishing the Grid
+## Establishing the Grid
 
-
-#### Meeting 1/30
-
-* Where should the grid be centered?
-* Look into what the difference between adding all hydrogens vs only polar
-* Check if vina takes .gpf
-
-## Inertial Tensor
-
-Its a 3x3 matrix. Read up later.
 
 ## .gpf file format
 
 * Explain this/put picture here
 
-## Git
+# Git
 
-### Initializing a Repository (Command-Line Approach):
+## Initializing a Repository (Command-Line Approach):
 
 1. Create file on your machine that you want to use as the repo
     * Make sure you are cd'd into it
@@ -130,7 +131,7 @@ Its a 3x3 matrix. Read up later.
     * `git commit -m "[some message]"`
     * `git push -u origin main`
 
-### How to get around using a git token repeatedly
+## How to get around using a git token repeatedly
 
 For this project, token: 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
 
@@ -140,14 +141,14 @@ Once you have initialized your repo and done your initial commit using a persona
 git config --global credential.helper manager
 ```
 
-### Removing a File From Git
+## Removing a File From Git
 
 1. Ensure you are in your git repository
 2. `git rm [filename]`
 3. `git commit -m "[message]"`
 4. `git push origin main`
 
-## Pod
+# Pod
 
 `echo`: print 
 
