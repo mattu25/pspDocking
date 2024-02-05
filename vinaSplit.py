@@ -29,7 +29,6 @@ def vinaSplit():
 
 if __name__ == "__main__":
     functionCall = sys.argv[1] #The function I am calling is the second argument of what I am writting in terminal
-
     try:
         getattr(sys.modules[__name__], functionCall)() #return value of named object
     except AttributeError:
