@@ -6,10 +6,29 @@ pathway = '/Users/mtmunger/Documents/Lab/proteinDesign'
 def getVinaParameters(filename):
     filePath = os.path.join(pathway, filename)
     with open(filePath, 'r') as gridFile:
-        x = gridFile.readlines()
-        print(x[1])
+        information = gridFile.readlines()
     gridFile.close()
 
+    #Pull key information from lines
+    points, spacing, center = [information[i] for i in [0, 2, 6]]
+
+    # Unpack elements into objects that can be saved in txt
+    points = points.split(sep = " ")[1:4]
+    spacing = float(spacing.split(sep = " ")[1])
+    center = center.split(sep = " ")[1:4]
+
+    for val in range(len(points)):
+        points[val] = float(points[val]) * spacing
+    
+    center = [float(x) for x in center] #Convert all center values to floats
+
+    keyInfo = [points, center]
+
+    newFile = os.path.join(pathway, "dockingParameters.txt")
+    with open(newFile, "w") as outFile:
+        for value in keyInfo:
+            outFile.write(f"{value}\n")
+    outFile.close()
 
 if __name__ == "__main__":
     functionCall = sys.argv[1] #The function I am calling is the second argument of what I am writting in terminal
