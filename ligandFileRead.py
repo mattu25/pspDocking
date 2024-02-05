@@ -25,11 +25,12 @@ def readFiles(directory):
             with open(file_path, 'rb') as decode:
                 contentBytes = decode.read()
             fileEncoding = chardet.detect(contentBytes)['encoding']
-            print(fileEncoding)
             decode.close()
+
             outFolder = filename + "_ligands"
             outDirectory = os.path.join(pathway, outFolder)
             os.makedirs(outDirectory, exist_ok=True)
+            
             with open(file_path, 'r', encoding=fileEncoding) as inFile:
                 findMolecules(inFile, outDirectory)
             inFile.close()
