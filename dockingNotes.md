@@ -11,11 +11,17 @@ There are several key commands to know in order to effectively navigate the mach
 
 `pwd` : get current working directory pathway
 
+`pwd|pbcopy` : copy working directory to clipboard
+
+`cp` :copy
+`cp -r`: recursive copy
 
 ## VI
 
 Vi is a text editing software for unix. We can use this to easily view files and make changes within terminal. 
 
+
+shift + " + * + y
 #### Key Commands
 
 `vi [Filename]` -- Write or edit a file in terminal
@@ -108,3 +114,77 @@ Its a 3x3 matrix. Read up later.
 ## .gpf file format
 
 * Explain this/put picture here
+
+## Git
+
+### Initializing a Repository (Command-Line Approach):
+
+1. Create file on your machine that you want to use as the repo
+    * Make sure you are cd'd into it
+    * Put a file in (either vi or create some kind of file)
+2. Create repository on github, obtain link
+3. Return to terminal, do the following
+    * `git init`
+    * `git remote add origin [URL]`
+    * `git add .`
+    * `git commit -m "[some message]"`
+    * `git push -u origin main`
+
+### How to get around using a git token repeatedly
+
+For this project, token: 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
+
+Once you have initialized your repo and done your initial commit using a personal token, run the following command and it will bypass you having to re-enter credentials:
+
+```
+git config --global credential.helper manager
+```
+
+### Removing a File From Git
+
+1. Ensure you are in your git repository
+2. `git rm [filename]`
+3. `git commit -m "[message]"`
+4. `git push origin main`
+
+## Pod
+
+`echo`: print 
+
+If you just type in command like vina ..., you will run on the head node
+
+Always write a 
+
+`sbatch [filename]`: this is the command to submit a job in pod
+Head Node: This is where you put files, make text edits -- it is realy only to delegate tasks and organize
+
+`squeue -u maunger`: this is how you monitor your progress
+
+    R: Running
+    PD: Pending
+    CG: ?
+
+* You never want to run a job too long on the head node
+
+Pod uses linux, so use that installer for vina
+
+scp [filename] pod:~
+
+Create bashrc for pod with important aliases
+Do some scripting
+
+Do some reading,
+script out using vina_split into mulitple jobs
+optimal number of processors per job
+Reading about how to get multiple computers to do jobs
+
+See how much slower flexible side chains are
+
+Autodock command (so I don't have to retype)
+
+vina_split --receptor tauSLS.pdbqt --ligand JJEBML.xaa.pdbqt --center_x 179.991 --center_y 178.728 --center_z 172.492 --size_x 19.1166666667 --size_y 20.3416666667 --size_z 31.35
+
+Access:
+
+username: munger
+password: accessCluster@93117
