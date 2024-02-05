@@ -1,4 +1,5 @@
 import os
+import sys
 
 '''
 I forgot vina_split could do everything we wanted, so I've now just written a script that can run vina split
@@ -22,11 +23,16 @@ def vinaSplit():
             os.replace(file_path, new_file) # Move pdbqt file that's about to be parsed into new directory
             
             split = " ".join([baseCommandSplit, "--input", new_file]) # Define split command
-
+           
             os.chdir(vinaPathway)
             os.system(split)
 
+if __name__ == "__main__":
+    functionCall = sys.argv[1] #The function I am calling is the second argument of what I am writting in terminal
 
-def vinaDock():
-    baseCommandDock = "./vina"
-    pass
+    try:
+        getattr(sys.modules[__name__], functionCall)() #return value of named object
+    except AttributeError:
+        print("Invalid or Non-Existant Function")
+ 
+        
