@@ -5,6 +5,7 @@ import sys
 This script is supposed to be how we can extract the information from the grid parameter file and put it into
 a format that can be easily read and turned into a vina call. 
 '''
+
 pathway = '/Users/mtmunger/Documents/Lab/proteinDesign'
 
 def getVinaParameters(filename):

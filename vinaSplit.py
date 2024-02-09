@@ -6,14 +6,14 @@ I forgot vina_split could do everything we wanted, so I've now just written a sc
 on all files in a directory. 
 '''
 
-ligandDirectory = '/Users/mtmunger/Documents/Lab/test'
+ligandDirectory = '/Users/mtmunger/Documents/Lab/test' # Adjust for pod
 vinaPathway = '/Users/mtmunger/Documents/Lab/proteinDesign/Autodock_Vina/autodock_vina_1_1_2_mac_catalina_64bit/bin'
 
 def vinaSplit():
     baseCommandSplit = "./vina_split"
     files = [f for f in os.listdir(ligandDirectory) if f.startswith(".") == False]
     for filename in files:
-        file_path = os.path.join(ligandDirectory, filename)
+        file_path = os.path.join(ligandDirectory, filename) # Create list of all tranches to be unpacked
         if os.path.isfile(file_path):
             outFolder = filename[:len(filename)-10] + "_PDBQT_Files" 
             new_directory = os.path.join(ligandDirectory, outFolder)
@@ -27,11 +27,6 @@ def vinaSplit():
             os.chdir(vinaPathway)
             os.system(split)
 
-if __name__ == "__main__":
-    functionCall = sys.argv[1] #The function I am calling is the second argument of what I am writting in terminal
-    try:
-        getattr(sys.modules[__name__], functionCall)() #return value of named object
-    except AttributeError:
-        print("Invalid or Non-Existant Function")
+vinaSplit() # Doing this will just let us python3 the file and not worry about the function
  
         
