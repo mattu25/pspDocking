@@ -13,7 +13,6 @@ def makeTrancheCSV():
             directoryDF.loc[len(directoryDF)] = trancheInfoTuple
             n += 1 
 
-    #directoryDF.Status = directoryDF.Status.astype(str)
     directoryDF.to_csv("/Users/mtmunger/Documents/lab/trancheList.csv", index=False)
     return
 
@@ -33,5 +32,5 @@ def checkCompletedTranches():
     return
 
 
-makeTrancheCSV()
-#checkCompletedTranches()
+#makeTrancheCSV()
+checkCompletedTranches()
