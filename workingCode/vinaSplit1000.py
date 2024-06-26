@@ -23,7 +23,7 @@ def splitTranches():
         if file.endswith(".pdbqt") == True:
             trancheFilePath = os.path.join(trancheOutput, str(file)[:6])
             os.mkdir(trancheFilePath) # Make new directory within output folder for this tranche
-
+            
             old_file_path = os.path.join(trancheXAAOrigin, file) # Establish current path of tranche
             new_file_path = os.path.join(trancheFilePath, file) # Establish new path for tranche
             os.replace(old_file_path, new_file_path) # Move the tranche to the new directory
