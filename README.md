@@ -16,7 +16,7 @@
 * Pandas
 * OpenBabel
   * Necessary for condensing docked PDBQT files from Autodock Vina into mol2 files for each tranche
-  * Would not be necessary if using Gnina for the entire process
+  * Make sure openbabel is installed both on the machine as well as the corresponding python package
     
 ## Main Scripts and Workflow
 
@@ -45,18 +45,40 @@
        in the event that they aren't, this script has been written to stop deleting a sub-directory.
      * Each function in this script has several checkpoints defined by boolean values that need to the correct value. This is done to ensure that there are no files
        lost or mistakes that can be propogated further without the knowledge of the user. Errors in this step of the process can result in uncertainty about what
-       compounds or tranches were complete, leading to time being wasted on manually checking files. 
+       compounds or tranches were complete, leading to time being wasted on manually checking files.
      * The final function in this script, `zipPDBQTS` is important both as a checkpiont and part of the final data collection process. This function puts all the
        docked pdbqt files into a zip file, which will both save them should anything go awry later on as well as minimize the amount of space they take up. In the
        last step of this process, these files will need to be referenced to obtain the smiles representation for each compound.
 
-4. 
+4. `gninaPrep.py`
+     * This writes a CSV with the path to each mol2 file in it. The file is called `mol2Data.csv`. This step is necessary so that a script can iterate through the
+       paths and call Gnina on each.
+      
+5. `gninaScript.py`
+     * This will call Gnina on every mol2 file listed in `mol2Data.csv`.
+
+6. `scoreCSVGenerator.py`
+     * This script 
 
    
 ## Supporting Scripts
 
  * In practice, `vinaSplit1000.py` was run using the `splitScript.sh` shell script.
  * `submitJobs.py` is run using the script `submit.sh`
- * `listDirectory.py` was written to help keep track of tranches that had been completed and those that still needed to be screeened. 
+ * `listDirectory.py` was written to help keep track of tranches that had been completed and those that still needed to be screeened.
+ * `zipMol2.py` was written to zip all mol2 files and aid in transfer between clusters
    
 ## Acknowledgments
+
+### People
+* Sam Lobo
+* Andrew Longhini
+  
+### Labs
+* [Shea Group](https://labs.chem.ucsb.edu/shea/joan-emma/)
+* [Kosik Lab](https://ken-kosik.mcdb.ucsb.edu)
+* [Shell Lab](https://theshelllab.org)
+  
+### Resources and Publications
+* [ZINC](https://zinc.docking.org)
+* [UCSB CNSI](https://www.cnsi.ucsb.edu)
