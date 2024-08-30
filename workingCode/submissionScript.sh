@@ -1,15 +1,12 @@
 #!/bin/bash
-#SBATCH -A mca05s027
 #SBATCH --job-name=testJob
-#SBATCH --time=0:10:00
+#SBATCH --time=0:20:00
 #SBATCH --ntasks=1
 #SBATCH --cpus-per-task=3
-#SBATCH --array=1-1000
-#SBATCH --mail-user="matthew_unger@lifesci.ucsb.edu"
-#SBATCH --mail-type=BEGIN,END,FAIL
+#SBATCH --array=1-690
 
-index=$((SLURM_ARRAY_TASK_ID + 1000))
-ligandCSV=""
+index=$((SLURM_ARRAY_TASK_ID + 11365))
+ligandCSV=~/ligandData.csv
 
 ligandPathways=($(awk -F',' '{print $3}' "$ligandCSV"))
 ligandNames=($(awk -F',' '{print $4}' "$ligandCSV"))
