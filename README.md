@@ -1,0 +1,62 @@
+# Gnina Docking Project
+
+## Introduction and Background
+
+## Softwares
+
+* Autodock Tools 4.0 - used to get coordinates of binding site on receptor
+* Autodock Vina - used to split PDBQT files from ZINC and dock them onto the receptor
+* Docker - necessary to run a containerized version of Gnina
+* Gnina - used to score docked ligands from autodock vina
+  * Gnina could be used for the entire process, eliminating the need for Autodock Vina. With the resources we had available, we decided to
+    use Autodock Vina because it runs on CPUs. This shortened the time needed for the overall process. 
+
+## Python Packages
+* Numpy
+* Pandas
+* OpenBabel
+  * Necessary for condensing docked PDBQT files from Autodock Vina into mol2 files for each tranche
+  * Would not be necessary if using Gnina for the entire process
+    
+## Main Scripts and Workflow
+
+1. `vinaSplit1000.py`
+     * First it will split all tranche.xaa files contained in the directory specified by the `trancheXAAOrigin` variable into individual ligand.pdbqt files
+       contained within directories for their respective tranches. These directories will all be contained within the path specified by `trancheOutput`.
+       If a tranche has more than 1000 ligands, this script will automatically create sub-directories of 1000 or less compounds. This feature was implemented
+       due to constraints that will be explained in the second step. 
+     * After splitting, the script will move all the tranche.xaa files into the directory defined under `trancheXAAOut`
+     * Finally, the script will write a file called `ligandData.csv`. This csv file contains information about each ligand, like its tranche, file name, and
+       most importantly, a pathway to what the docked ligand file for that compound will be. This is used in step 2. Every docked ligand from this step will be
+       saved in a directory with the original sub-directory name plus _OutFiles. 
+       
+
+2. `submitJobs.py` 
+     * The goal of this script is to write a shell script for each sub-directory of each tranche that will run an array of jobs. The exact number of jobs that
+       the script for a sub-directory runs is determined by the number of ligands within the sub-directory. Each job is an Autodock Vina call on one ligand within
+       the sub-directory. Since we had a limit of 1000 jobs in an array, our directories could be not exceed 1000 compounds. 
+     * The shell script written is called `submissionScript.sh`. As mentioned above, this script is updated and submitted for each sub-tranche.
+     * The data for the specific ligand pathway and out pathway used during any given run of an array job is found in `ligandData.csv`. 
+    
+
+3. `condenseFiles.py`
+     * This script was written to go through each subtranche, delete the undocked tranche files, then merge all files within a subtranche into a single .mol2 file
+       that can be transfered to the system that will be running the Gnina software. Ideally, the docked and undocked files will be in separate directories, however
+       in the event that they aren't, this script has been written to stop deleting a sub-directory.
+     * Each function in this script has several checkpoints defined by boolean values that need to the correct value. This is done to ensure that there are no files
+       lost or mistakes that can be propogated further without the knowledge of the user. Errors in this step of the process can result in uncertainty about what
+       compounds or tranches were complete, leading to time being wasted on manually checking files. 
+     * The final function in this script, `zipPDBQTS` is important both as a checkpiont and part of the final data collection process. This function puts all the
+       docked pdbqt files into a zip file, which will both save them should anything go awry later on as well as minimize the amount of space they take up. In the
+       last step of this process, these files will need to be referenced to obtain the smiles representation for each compound.
+
+4. 
+
+   
+## Supporting Scripts
+
+ * In practice, `vinaSplit1000.py` was run using the `splitScript.sh` shell script.
+ * `submitJobs.py` is run using the script `submit.sh`
+ * `listDirectory.py` was written to help keep track of tranches that had been completed and those that still needed to be screeened. 
+   
+## Acknowledgments
