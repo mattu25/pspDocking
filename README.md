@@ -76,8 +76,8 @@ The goal of this project
 * Andrew Longhini
   
 ### Labs
-* [Shea Group](https://labs.chem.ucsb.edu/shea/joan-emma/)
 * [Kosik Lab](https://ken-kosik.mcdb.ucsb.edu)
+* [Shea Group](https://labs.chem.ucsb.edu/shea/joan-emma/)
 * [Shell Lab](https://theshelllab.org)
   
 ### Resources and Publications
