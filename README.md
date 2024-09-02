@@ -1,6 +1,7 @@
 # Gnina Docking Project
 
 ## Introduction and Background
+The goal of this project 
 
 ## Softwares
 
@@ -20,6 +21,8 @@
     
 ## Main Scripts and Workflow
 
+**N.B.** *All main and supporting scripts are found in the `workingCode` directory. The `oldCode` directory is simply an archival directory with scripts no longer serve a purpose for the workflow.*
+
 1. `vinaSplit1000.py`
      * First it will split all tranche.xaa files contained in the directory specified by the `trancheXAAOrigin` variable into individual ligand.pdbqt files
        contained within directories for their respective tranches. These directories will all be contained within the path specified by `trancheOutput`.
@@ -30,7 +33,6 @@
        most importantly, a pathway to what the docked ligand file for that compound will be. This is used in step 2. Every docked ligand from this step will be
        saved in a directory with the original sub-directory name plus _OutFiles. 
        
-
 2. `submitJobs.py` 
      * The goal of this script is to write a shell script for each sub-directory of each tranche that will run an array of jobs. The exact number of jobs that
        the script for a sub-directory runs is determined by the number of ligands within the sub-directory. Each job is an Autodock Vina call on one ligand within
@@ -38,7 +40,6 @@
      * The shell script written is called `submissionScript.sh`. As mentioned above, this script is updated and submitted for each sub-tranche.
      * The data for the specific ligand pathway and out pathway used during any given run of an array job is found in `ligandData.csv`. 
     
-
 3. `condenseFiles.py`
      * This script was written to go through each subtranche, delete the undocked tranche files, then merge all files within a subtranche into a single .mol2 file
        that can be transfered to the system that will be running the Gnina software. Ideally, the docked and undocked files will be in separate directories, however
@@ -58,15 +59,15 @@
      * This will call Gnina on every mol2 file listed in `mol2Data.csv`.
 
 6. `scoreCSVGenerator.py`
-     * This script 
+     * This script contains a series of functions which isolate scores for each ligand being screened from the output of running Gnina. It will also use the zipped            ligand pdbqt files to find the SMILES representation for each ligand. It will compile all of this information into a single CSV file that can be used for               further analysis. 
 
-   
 ## Supporting Scripts
 
  * In practice, `vinaSplit1000.py` was run using the `splitScript.sh` shell script.
  * `submitJobs.py` is run using the script `submit.sh`
  * `listDirectory.py` was written to help keep track of tranches that had been completed and those that still needed to be screeened.
  * `zipMol2.py` was written to zip all mol2 files and aid in transfer between clusters
+ * `moveZips.py` is used to transfer zips to a new directory
    
 ## Acknowledgments
 
@@ -80,5 +81,5 @@
 * [Shell Lab](https://theshelllab.org)
   
 ### Resources and Publications
-* [ZINC](https://zinc.docking.org)
-* [UCSB CNSI](https://www.cnsi.ucsb.edu)
+* [ZINC](https://zinc.docking.org) - Small molecule database
+* [UCSB CNSI](https://www.cnsi.ucsb.edu) - Computing Resources
