@@ -25,7 +25,7 @@ Below is an image of our target fillament, the red region on the top is the targ
     
 ## Main Scripts and Workflow
 
-**Note** *All main and supporting scripts are found in the `workingCode` directory. The `oldCode` directory is simply an archival directory with scripts no longer serve a purpose for the workflow.*
+**Note:**  *All main and supporting scripts are found in the `workingCode` directory. The `oldCode` directory is simply an archival directory with scripts no longer serve a purpose for the workflow.*
 
 1. `vinaSplit1000.py`
      * First it will split all tranche.xaa files contained in the directory specified by the `trancheXAAOrigin` variable into individual ligand.pdbqt files
