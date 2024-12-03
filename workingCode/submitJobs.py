@@ -28,7 +28,6 @@ for groupName, groupDF in grouped_ligandData:
 # Step 2: 
 for group in subTrancheInfo: 
     scriptOptions = f'''#!/bin/bash
-#SBATCH -A mca05s027
 #SBATCH --job-name=testJob
 #SBATCH --time=0:15:00
 #SBATCH --ntasks=1
