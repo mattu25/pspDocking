@@ -4,9 +4,9 @@ import numpy as np
 import subprocess as sp
 from openbabel import openbabel # type: ignore
 
-scoreDirectory = "/home/maunger/gninaScoring/completeScores"
-pdbqtDirectory = "/home/maunger/gninaScoring/pdbqtZips"
-submitDirectory = "/home/maunger/gninaScoring/scripts"
+scoreDirectory = ""
+pdbqtDirectory = ""
+submitDirectory = ""
 
 scoreDirectoryFiles = [l for l in os.listdir(scoreDirectory) if l.startswith(".") == False]
 
