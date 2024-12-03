@@ -6,7 +6,7 @@ This script is supposed to be how we can extract the information from the grid p
 a format that can be easily read and turned into a vina call. 
 '''
 
-pathway = '/Users/mtmunger/Documents/Lab/proteinDesign'
+pathway = ''
 
 def getVinaParameters(filename):
     filePath = os.path.join(pathway, filename)
