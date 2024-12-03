@@ -2,7 +2,7 @@ import os
 import subprocess as sp
 
 # Important directories
-trancheOutput = "/anvil/scratch/x-munger/06_24_24Run1/trancheOutput" 
+trancheOutput = "" 
 
 # Task 1: Get rid of undocked ligand files
 def removeLigandFiles():
