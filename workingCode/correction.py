@@ -1,9 +1,9 @@
 import os
 import subprocess as sp
 
-homeDirectory = "/anvil/scratch/x-munger/07_08_24Run1"
-xaaDirectory = "/anvil/scratch/x-munger/07_08_24Run1/splitXAAOriginal"
-dockedDirectory = "/anvil/scratch/x-munger/07_08_24Run1/trancheOutput"
+homeDirectory = ""
+xaaDirectory = ""
+dockedDirectory = ""
 
 def removeFiles():
     undockedCompounds = []
