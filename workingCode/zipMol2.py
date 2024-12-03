@@ -1,7 +1,7 @@
 import os
 import subprocess as sp
 
-dockedTrancheDirectory = "/anvil/projects/x-mca05s027/Matthews_work/trancheOutFiles"
+dockedTrancheDirectory = ""
 def zipMol2():
     tranches = os.listdir(dockedTrancheDirectory)
     mol2Directory = os.path.join(dockedTrancheDirectory,"mol2Compressed")
