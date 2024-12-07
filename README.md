@@ -7,6 +7,8 @@ fillament involved in progressive supranuclear palsy (PSP) identified through mo
 Below is an image of our target fillament, the red region on the top is the targeted hydrophobic region. 
 <img width="496" alt="Screenshot 2024-11-30 at 1 56 57 PM" src="https://github.com/user-attachments/assets/7d30a5ad-f5f5-43c3-b1fe-12c7046b7cd0">
 
+![image](https://github.com/user-attachments/assets/6bf65f41-115d-40a8-b93b-7ec5839c152f)
+
 ## Softwares
 
 * Autodock Tools 4.0 - used to get coordinates of binding site on receptor
