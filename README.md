@@ -2,11 +2,13 @@
 
 ## Introduction and Background
 The goal of this project was to identify small-molecules capable of binding to a hydrophobic region on the tau
-fillament involved in progressive supranuclear palsy (PSP) identified through molecular dynamics simulations.
+filament involved in progressive supranuclear palsy (PSP) identified through molecular dynamics simulations.
 
-Below is an image of our target fillament, the red region on the top is the targeted hydrophobic region. 
+Below is an image of our target filament, the red region on the top is the targeted hydrophobic region. 
 <img width="496" alt="Screenshot 2024-11-30 at 1 56 57 PM" src="https://github.com/user-attachments/assets/7d30a5ad-f5f5-43c3-b1fe-12c7046b7cd0">
 
+
+Here is an example image of a simulated ligand binding intraction with the target PSP tau filament
 ![image](https://github.com/user-attachments/assets/6bf65f41-115d-40a8-b93b-7ec5839c152f)
 
 ## Softwares
