@@ -9,6 +9,7 @@ Below is an image of our target filament, the red region on the top is the targe
 
 
 Here is an example image of a simulated ligand binding intraction with the target PSP tau filament
+
 ![image](https://github.com/user-attachments/assets/6bf65f41-115d-40a8-b93b-7ec5839c152f)
 
 ## Softwares
